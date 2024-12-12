@@ -81,6 +81,11 @@ jreleaser {
       }
     }
   }
+  release {
+    github {
+      skipTag = true
+    }
+  }
 }
 
 tasks.named('test') {
