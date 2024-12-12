@@ -1,5 +1,9 @@
 [versions]
 junit-jupiter = "5.10.3"
+jreleaser = "1.15.0"
 
 [libraries]
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter" }
+
+[plugins]
+jreleaser = { id = "org.jreleaser", version.ref = "jreleaser" }

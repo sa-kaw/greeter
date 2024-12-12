@@ -1,5 +1,8 @@
 plugins {
   id 'java-library'
+  id 'maven-publish'
+  id 'com.palantir.git-version' version '3.0.0'
+  alias(libs.plugins.jreleaser)
 }
 
 repositories {
@@ -14,6 +17,69 @@ dependencies {
 java {
   toolchain {
     languageVersion = JavaLanguageVersion.of(21)
+  }
+  withJavadocJar()
+  withSourcesJar()
+}
+
+version = gitVersion()
+
+publishing {
+  repositories {
+    maven {
+      url = layout.buildDirectory.dir('staging-deploy')
+    }
+  }
+  publications {
+    maven(MavenPublication) {
+      groupId = 'io.github.sa-kaw'
+      artifactId = 'greeter'
+
+      from components.java
+
+      pom {
+        name = 'greeter'
+        description = 'Sample application'
+        url = 'https://github.com/sa-kaw/greeter'
+        inceptionYear = '2024'
+        licenses {
+          license {
+            name = 'Apache-2.0'
+            url = 'https://spdx.org/licenses/Apache-2.0.html'
+          }
+        }
+        developers {
+          developer {
+            id = 'sa-kaw'
+            name = 'sa-kaw'
+          }
+        }
+        scm {
+          connection = 'scm:git:https://github.com/sa-kaw/greeter.git'
+          developerConnection = 'scm:git:git@github.com:sa-kaw/greeter.git'
+          url = 'https://github.com/sa-kaw/greeter'
+        }
+      }
+    }
+  }
+}
+
+jreleaser {
+  gitRootSearch = true
+  signing {
+    active = 'ALWAYS'
+    armored = true
+  }
+  deploy {
+    maven {
+      mavenCentral {
+        sonatype {
+          active = 'ALWAYS'
+          url = 'https://central.sonatype.com/api/v1/publisher'
+          stagingRepository('build/staging-deploy')
+        }
+      }
+    }
   }
 }
 
