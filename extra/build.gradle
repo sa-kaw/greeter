@@ -33,12 +33,12 @@ publishing {
   publications {
     maven(MavenPublication) {
       groupId = 'io.github.sa-kaw'
-      artifactId = 'greeter-core'
+      artifactId = 'greeter-extra'
 
       from components.java
 
       pom {
-        name = 'greeter-core'
+        name = 'greeter-extra'
         description = 'Sample application'
         url = 'https://github.com/sa-kaw/greeter'
         inceptionYear = '2024'

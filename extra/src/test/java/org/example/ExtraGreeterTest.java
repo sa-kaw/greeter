@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class GreeterTest {
   @Test
   void someLibraryMethodReturnsTrue() {
-    final var greeter = new Greeter();
-    assertEquals(greeter.greeting(), "hello~!");
+    final var greeter = new ExtraGreeter();
+    assertEquals(greeter.greeting(), "hi");
   }
 }
