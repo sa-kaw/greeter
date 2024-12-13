@@ -3,4 +3,4 @@ plugins {
 }
 
 rootProject.name = 'greeter'
-include('lib')
+include('core')
