@@ -85,6 +85,9 @@ jreleaser {
     github {
       skipTag = true
       tagName = '{{projectVersion}}'
+      prerelease {
+        pattern = '.*-.*'
+      }
     }
   }
 }
