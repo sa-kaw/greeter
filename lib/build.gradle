@@ -84,7 +84,7 @@ jreleaser {
   release {
     github {
       skipTag = true
-      tagName = '{{tagName}}'
+      tagName = '{{projectVersion}}'
     }
   }
 }
