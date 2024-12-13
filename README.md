@@ -44,3 +44,11 @@ JRELEASER_GPG_SECRET_KEY = """-----BEGIN PGP PRIVATE KEY BLOCK-----
 - `./gradlew clean`でクリーンしておく
 - `./gradlew publish`でビルドしたり POM を生成したりしてローカルリポジトリにリリースする
 - `./gradlew jreleaserFullRelease`でリリースする
+
+### 参考
+
+- https://central.sonatype.org/publish/publish-portal-gradle/
+- https://zenn.dev/orangain/articles/publish-to-maven-central-using-gradle
+- https://jreleaser.org/guide/latest/examples/maven/maven-central.html
+- https://jreleaser.org/guide/latest/checklist.html
+- https://jreleaser.org/guide/latest/reference/release/github.html
